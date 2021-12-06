@@ -1,0 +1,19 @@
+bookdown::bs4_book:
+  css: static/css/bs4_style.css
+  theme:
+    primary: "#006e76ff"
+  repo:
+    base: https://github.com/kdschneider/tpt-goldbonder
+    branch: main
+  template: static/templates/bs4_german.html
+bookdown::html_document2:
+  theme: paper
+  self_contained: true
+bookdown::pdf_document2:
+  includes:
+    in_header: static/preamble.tex
+  latex_engine: xelatex
+  citation_package: natbib
+  keep_tex: false
+  clean: true
+  template: static/templates/eisvogel.latex

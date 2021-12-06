@@ -1,0 +1,73 @@
+--- 
+title: "EMV Magnetlabor"
+author: "Konstantin Schneider"
+date: "`r format(lubridate::today(), '%d. %b %Y')`"
+site: bookdown::bookdown_site
+bibliography: static/bib.bib
+url: https://kdschneider.github.io/emv-magnetlabor
+cover-image: static/img/title_image.jpg
+description: |
+Bericht über meine Arbeit zur EMV des Magnetlabors.
+biblio-style: apalike
+favicon: static/img/favicon.ico
+cache: true
+# latex
+titlepage: true
+titlepage-background: static/titlepage_background.pdf
+titlepage-text-color: FFFFFF
+titlepage-rule-height: 0
+toc-own-page: true
+params: 
+  online: yes
+  show_code: yes
+---
+ 
+`r if (params$online == FALSE) '<!--'`
+# Index {- #index}
+
+```{r}
+library(tidyverse)
+```
+Dies ist ein Bericht über meine Arbeit als SHK/WHK am Lehrstuhl Weiss (UR).
+
+## Downloads {-}
+
+|                   |           |                                                                                                 |
+|-------------------|-----------|-------------------------------------------------------------------------------------------------|
+| **Bericht**       |           | [PDF](./downloads/tpt_goldbonder_bericht.pdf), [HTML](./downloads/tpt_goldbonder_bericht.html)  |
+| **Auswertungen**  | Gatebreak | [Screening](./downloads/gb_screening.html), [Mock](./downloads/gb_mock.html)  |
+|                   | Pulltest  | [Box-Behnken](./downloads/pt_bbd.html)                                                 |
+| **Sonstiges**     |           | [CSAR Rezept](./downloads/csar.html)                                                            |
+
+## Code {-}
+
+### Quellcode {-}
+
+Der Quellcode dieses Berichts steht [hier](https://github.com/kdschneider/emv-magnetlabor) zur Verfügung. 
+Die Auswertungen wurden in `R` geschrieben. 
+Der Bericht selbst wurde mit dem `R` Paket `{bookdown}` erstellt. 
+
+### Bericht lokal rendern {-}
+
+Um den kompletten Bericht lokal zu rendern, kann das R-Script `_build.R` ausgeführt werden. 
+Die benötigten Pakete können über das R-Paket `{renv}` mit dem Befehl `renv::install()` installiert werden. 
+Dieser installiert alle in der Datei `renv.lock` aufgeführten Pakete in der korrekten Version. 
+
+### Session Info {-}
+
+```{r}
+sessioninfo::platform_info() |>
+  enframe() |> 
+  unnest(value) |> 
+  pivot_wider(id_cols = everything(), names_from = "name", values_from = "value") |> 
+  select(
+    "Version" = version,
+    "OS" = os,
+    "System" = system,
+    pandoc
+  ) |> 
+  pivot_longer(cols = everything()) |> 
+  knitr::kable(col.names = c("", ""))
+```
+
+`r if (params$online == FALSE) '-->'`

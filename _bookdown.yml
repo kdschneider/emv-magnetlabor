@@ -1,0 +1,12 @@
+book_filename: "tpt_goldbonder_bericht"
+new_session: false
+before_chapter_script: [_common.R, R/custom_functions.R]
+delete_merged_file: true
+language:
+  label:
+    fig: "Abbildung "
+    tab: "Tabelle "
+    ref: "Quellen "
+  ui:
+    chapter_name: NULL
+rmd_subdir: chapters
