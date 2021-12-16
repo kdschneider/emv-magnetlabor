@@ -1,5 +1,8 @@
 # common ----
 
+# load all functions in folder R/
+devtools::load_all()
+
 # chunk options ----
 knitr::opts_chunk$set(
   comment = "#>",

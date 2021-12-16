@@ -6,8 +6,7 @@ site: bookdown::bookdown_site
 bibliography: static/bib.bib
 url: https://kdschneider.github.io/emv-magnetlabor
 cover-image: static/img/title_image.jpg
-description: |
-Bericht über meine Arbeit zur EMV des Magnetlabors.
+description: Bericht über meine Arbeit zur EMV des Magnetlabors.
 biblio-style: apalike
 favicon: static/img/favicon.ico
 cache: true
@@ -29,15 +28,6 @@ params:
 library(tidyverse)
 ```
 Dies ist ein Bericht über meine Arbeit als SHK/WHK am Lehrstuhl Weiss (UR).
-
-## Downloads {-}
-
-|                   |           |                                                                                                 |
-|-------------------|-----------|-------------------------------------------------------------------------------------------------|
-| **Bericht**       |           | [PDF](./downloads/tpt_goldbonder_bericht.pdf), [HTML](./downloads/tpt_goldbonder_bericht.html)  |
-| **Auswertungen**  | Gatebreak | [Screening](./downloads/gb_screening.html), [Mock](./downloads/gb_mock.html)  |
-|                   | Pulltest  | [Box-Behnken](./downloads/pt_bbd.html)                                                 |
-| **Sonstiges**     |           | [CSAR Rezept](./downloads/csar.html)                                                            |
 
 ## Code {-}
 
