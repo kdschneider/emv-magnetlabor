@@ -1,0 +1,28 @@
+# Testmessungen
+
+```{r}
+data <-
+  read_scope(
+  file = here::here("data-raw/test/scope_13.csv")
+)
+```
+
+```{r}
+data |> 
+  head() |> 
+  knitr::kable()
+```
+
+
+```{r, fig.cap = "Störsignal, dass durch das betätigen des Lichtschalters im Messspitzenlabor hervorgerufen wurde."}
+data |>
+  ggplot() +
+  aes(x = seconds * 1000, y = volts) +
+  geom_line() +
+  labs(
+    title = "Störsignal",
+    x = "Zeit in ms",
+    y = "Spannung in Volt"
+  )
+```
+
