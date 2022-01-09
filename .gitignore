@@ -8,3 +8,4 @@ docs
 man/
 _book/
 _bookdown_files/
+.RData
