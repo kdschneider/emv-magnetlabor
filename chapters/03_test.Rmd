@@ -20,19 +20,18 @@ lablight_df <-
 ```
 
 ```{r, fig.cap = "Störsignal, dass durch das betätigen des Lichtschalters im Messspitzenlabor hervorgerufen wurde."}
-lablight_df |>
-  unnest(measurement) |> 
-  ggplot() +
-  aes(
-    x = seconds * 1000, 
-    y = volts
-  ) +
-  geom_line() +
-  labs(
-    title = "Störsignal",
-    x = "Zeit in ms",
-    y = "Spannung in Volt"
-  ) +
-  facet()
+# lablight_df |>
+#   unnest(measurement) |> 
+#   ggplot() +
+#   aes(
+#     x = seconds * 1000, 
+#     y = volts
+#   ) +
+#   geom_line() +
+#   labs(
+#     title = "Störsignal",
+#     x = "Zeit in ms",
+#     y = "Spannung in Volt"
+#   )
 ```
 
