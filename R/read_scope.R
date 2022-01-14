@@ -1,5 +1,4 @@
 # function to read scope data
-
 read_scope <- function(file) {
 
   data <-
