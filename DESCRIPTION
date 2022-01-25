@@ -11,4 +11,6 @@ Imports:
     bookdown,
     bslib,
     downlit,
-    xml2
+    xml2,
+    styler,
+    shiny
