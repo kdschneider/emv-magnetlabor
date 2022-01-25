@@ -1,5 +1,7 @@
 # Schirmung von Leitern
 
+siehe [Elektromagnetische Verträglichkeit in der Praxis (Stotz, 2013)](https://link.springer.com/book/10.1007/978-3-642-34345-2)
+
 - Flächiges Auflegen
   - Abschirmung sollte flächig aufgelegt werden.
     -> HF-Störungen werden besser unterdrückt
