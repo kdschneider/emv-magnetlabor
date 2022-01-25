@@ -1,0 +1,20 @@
+# Testmessungen
+
+```{r}
+load(here::here("data/analysis_1.rda"))
+```
+
+```{r}
+analysis_1_data |> 
+  dplyr::select(-filename, -measurement) |> 
+  DT::datatable()
+```
+
+```{r, fig.height=12}
+analysis_1_plot_1
+```
+
+```{r}
+analysis_1_plot_2
+```
+
