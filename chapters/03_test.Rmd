@@ -12,13 +12,13 @@ source(here::here("R/read_scope.R"))
 ```
 
 ```{r}
-lablight_rds <- 
+lablight_df <- 
   read_rds(
     here::here("data/lablight_df.rds")
   )
 ```
 
-```{r, fig.cap = "Störsignal, dass durch das betätigen des Lichtschalters im Messspitzenlabor hervorgerufen wurde.", fig.height = 10}
+```{r, fig.cap = "Störsignal, das durch das betätigen des Lichtschalters im Messspitzenlabor hervorgerufen wurde.", fig.height = 10}
 temp_data <-
   lablight_df |>
   mutate(
