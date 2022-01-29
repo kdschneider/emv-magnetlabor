@@ -1,0 +1,88 @@
+# Mögliche Lösungen {#solutions}
+
+Die Messungen an unterschiedlichen Kabeln und Aufgbauten hat gezeigt, dass eine zusätzliche Abschirmung mit einem Kupfergeflecht, die Störfestigkeit der Kabel verbessert. 
+Daher sollen im folgenden mehrere mögliche Umsetzungen verglichen werden.
+
+## Kupfergeflecht
+
+Die vorhandenen RG-58 Koaxialkabel könnten zusätzlich mit einem äußeren Kupfergeflecht umhüllt werden.
+
+**Noch nichts genaueres. Michael Weigl ist informiert.**
+
+## Andere Kabel
+
+Eine weitere Möglichkeit wäre die Anschaffung neuer Kabel mit doppelter Isolierung. 
+Gut geeignet wären die Kabel RG-223, RG-142 oder RG-400.
+Diese haben ähnliche Maße wie unsere vorhandenen RG-58 Kabel, verfügen allerdings über eine zusätzliches versilbertes Kupfergeflecht zur besseren Isoliereung.
+Außerdem können sie auch mit BNC-Steckern versehen werden.
+Siehe Tabelle *ref* für einen Vergleich der Kabel.
+
+```{r}
+cables <-
+  tidyr::tibble(
+    "Kabel" = c(
+      "RG-58", 
+      "RG-223",
+      "RG-142",
+      "RG-400"
+    ),
+    "Außendurchmesser" = c(
+      "5.0 mm", 
+      "5.2 mm",
+      "4.95 mm",
+      "4.95 mm"
+    ),
+    "Isolation" = c(
+      "PE (Polyethylen)", 
+      "PE (Polyethylen)",
+      "PTFE (Teflon)",
+      "PTFE (Teflon)"
+    ),
+    "Schirmung" =	c(
+      "Kupfergeflecht verzinnt", 
+      "Doppelt Cu Geflecht versilbert",
+      "Doppelt Cu Geflecht versilbert",
+      "Doppelt Cu Geflecht versilbert"
+    ),
+    "Wellenwiderstand" = c(
+      "50 Ohm +/-2", 
+      "50 Ohm +/-2",
+      "50 Ohm +/-2",
+      "50 Ohm +/-2"
+    ),
+    "Innenleiter" = c(
+      "19x0.2mm Kupfer-Litze verzinnt", 
+      "1x0,9mm 	 Kupfer versilbert",
+      "1x0,95mm 	 Kupfer versilbert",
+      "19x0,2mm 	 Kupferlitze versilbert"
+      ),
+    "Min. Biegeradius" = c(
+      "30 mm",
+      "30 mm",
+      "30 mm",
+      "30 mm"
+    ),
+    "Gewicht" = c(
+      "38 g/m",
+      "60 g/m",
+      "80 g/m",
+      "80 g/m"
+    ),
+    "Kapazität" = c(
+      "101 pF/m",
+      "101 pF/m",
+      "96 pF/m",
+      "96 pF/m"
+    ),
+    "Preis" = c(
+      "0.75 EUR/m",
+      "2.40 EUR/m",
+      "6.75 EUR/m",
+      "7.75 EUR/m"
+    )
+  )
+
+cables |> 
+  DT::datatable()
+```
+
