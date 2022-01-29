@@ -13,7 +13,7 @@ library(patchwork)
 source(here::here("R/read_scope.R"))
 
 # read data ----
-analysis_1_data <-
+test_01_data <-
   tibble(filename = list.files(here::here("data-raw/lablight"), pattern = "*.csv")) |>
   filter(filename != "index.csv") |>
   mutate(
@@ -30,10 +30,11 @@ analysis_1_data <-
   ungroup()
 
 # plots ----
-analysis_1_plot_1 <-
-  analysis_1_data |>
+## plot 1 ----
+test_01_plot_01 <-
+  test_01_data |>
   mutate(
-    across(length:extra_ins, as_factor),
+    across(length:extra_ins, forcats::as_factor),
     length = fct_relevel(length, "1", "2", "3") |>
       fct_recode("1m" = "1", "2m" = "2", "3m" = "3"),
     iso_traf = fct_relevel(iso_traf, "TRUE", "FALSE") |>
@@ -126,36 +127,94 @@ plot_sd <- function(data, x) {
 
 }
 
-p1 <- plot_sd(analysis_1_data, length) +
+p1 <- plot_sd(test_01_data, length) +
   labs(subtitle = "Kabellänge")
 
-p2 <- plot_sd(analysis_1_data, iso_traf) +
+p2 <- plot_sd(test_01_data, iso_traf) +
   labs(subtitle = "Trenntrafo") +
   theme(axis.title.y = element_blank())
 
-p3 <- plot_sd(analysis_1_data, ground) +
+p3 <- plot_sd(test_01_data, ground) +
   labs(subtitle = "Erdung")
 
-p4 <- plot_sd(analysis_1_data, extra_ins) +
+p4 <- plot_sd(test_01_data, extra_ins) +
   labs(subtitle = "Extra Isolierung") +
   theme(axis.title.y = element_blank())
 
-analysis_1_plot_2 <-
+test_01_plot_02 <-
   (p1 + p2) / (p3 + p4) &
   plot_annotation(title = "Mittlere Spannung mit Standardabweichung")
 
 remove(p1, p2, p3, p4)
 
 
+## plot 3 ----
+test_01_plot_03 <-
+  test_01_data |>
+  mutate(
+    iso_traf = as.numeric(iso_traf),
+    ground = as.numeric(ground),
+    extra_ins = case_when(
+      extra_ins == "FALSE" ~ 0,
+      extra_ins == "single" ~ 1,
+      extra_ins == "double" ~ 2
+    )
+  ) |>
+  mutate(
+    across(
+      length:extra_ins,
+      ~scales::rescale(.x, to = c(-1,1))
+    )
+  ) |>
+  unnest(measurement) |>
+  pivot_longer(
+    cols = c(
+      length,
+      ground,
+      iso_traf,
+      extra_ins
+    )
+  ) |>
+  group_by(filename, name, rep, value) |>
+  summarise(
+    volts_max = max(volts),
+    volts_min = min(volts),
+    volts_delta = volts_max - volts_min,
+  ) |>
+  group_by(name, value) |>
+  mutate(volts_median = median(volts_delta)) |>
+  mutate(
+    name = as_factor(name) |>
+      fct_recode(
+        "Kabellänge" = "length",
+        "Erdung" = "ground",
+        "Trenntrafo" = "iso_traf",
+        "Extra Schirmung" = "extra_ins"
+      )
+  ) |>
+  # plot
+  ggplot() +
+  aes(x = value) +
+  geom_point(aes(y = volts_delta), size = 0.5) +
+  geom_point(aes(y = volts_median)) +
+  geom_line(aes(y = volts_median)) +
+  scale_x_continuous(n.breaks = 3) +
+  labs(
+    title = "Effektplots",
+    y = "Mittlere Peak-to-peak Spannung [V]"
+  ) +
+  facet_wrap(facets = vars(name)) +
+  theme(axis.title.x = element_blank())
 
 # write ----
 save(
   list = c(
-    "analysis_1_data",
-    "analysis_1_plot_1",
-    "analysis_1_plot_2"
+    "test_01_data",
+    "test_01_plot_01",
+    "test_01_plot_02",
+    "test_01_plot_03"
   ),
-  file = here::here("data/analysis_1.rda"),
+  file = here::here("data/test_01.rda"),
   compress = "xz"
 )
 
