@@ -13,7 +13,7 @@ Die vorhandenen RG-58 Koaxialkabel könnten zusätzlich mit einem äußeren Kupf
 
 Eine weitere Möglichkeit wäre die Anschaffung neuer Kabel mit doppelter Isolierung. 
 Gut geeignet wären die Kabel RG-223, RG-142 oder RG-400.
-Diese haben ähnliche Maße wie unsere vorhandenen RG-58 Kabel, verfügen allerdings über eine zusätzliches versilbertes Kupfergeflecht zur besseren Isoliereung.
+Diese haben ähnliche Maße wie unsere vorhandenen RG-58 Kabel, verfügen allerdings über eine zusätzliches versilbertes Kupfergeflecht zur besseren Schirmung.
 Außerdem können sie auch mit BNC-Steckern versehen werden.
 Siehe Tabelle *ref* für einen Vergleich der Kabel.
 
@@ -44,30 +44,12 @@ cables <-
       "Doppelt Cu Geflecht versilbert",
       "Doppelt Cu Geflecht versilbert"
     ),
-    "Wellenwiderstand" = c(
-      "50 Ohm +/-2", 
-      "50 Ohm +/-2",
-      "50 Ohm +/-2",
-      "50 Ohm +/-2"
-    ),
     "Innenleiter" = c(
       "19x0.2mm Kupfer-Litze verzinnt", 
-      "1x0,9mm 	 Kupfer versilbert",
-      "1x0,95mm 	 Kupfer versilbert",
-      "19x0,2mm 	 Kupferlitze versilbert"
+      "1x0,9mm Kupfer versilbert",
+      "1x0,95mm Kupfer versilbert",
+      "19x0,2mm Kupferlitze versilbert"
       ),
-    "Min. Biegeradius" = c(
-      "30 mm",
-      "30 mm",
-      "30 mm",
-      "30 mm"
-    ),
-    "Gewicht" = c(
-      "38 g/m",
-      "60 g/m",
-      "80 g/m",
-      "80 g/m"
-    ),
     "Kapazität" = c(
       "101 pF/m",
       "101 pF/m",
@@ -83,6 +65,7 @@ cables <-
   )
 
 cables |> 
-  DT::datatable()
+  knitr::kable()
 ```
 
+Alle vier Kabel besitzen einen minimalen Biegeradius von 30cm, sowie einen Wellenwiderstand von 50 Ohm +/- 2.

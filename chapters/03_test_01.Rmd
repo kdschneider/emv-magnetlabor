@@ -4,21 +4,37 @@
 load(here::here("data/test_01.rda"))
 ```
 
-```{r}
-# test_01_data |> 
-#   dplyr::select(-filename, -measurement) |> 
-#   DT::datatable()
-```
+Im Messspitzenlabor konnte durch das Einschalten der Raumbeleuchtung ein Störsignal erzeugt werden. 
+Nachffolgend soll gezeigt werden, welche Faktoren dabei maßgeblich eine Rolle spielen.
 
-```{r, fig.height=12}
+## Aufbau
+
+**HIER NOCH KURZ AUFBAU**
+
+## Versuchsdurchführung
+
+Es wurden die folgenden Faktoren betrachtet: 
+  - Kabellänge: 1m, 2m, 3m
+  - Trenntrafo: mit/ohne
+  - Erdung: mit/ohne
+  - Zusätzliche Schirmung durch ein Kupfergeflecht: ohne, einfach aufgelegt, doppelt aufgelegt
+  
+Es wurde zu jeder Kombination dieser Parameterwerte eine Messung aufgenommen und die Oszilloskopdaten gespeichert. 
+Dies wurde dreimal wiederholt.
+Abbildung \@ref(test_01_plot_01) zeigt die Verlaufsgraphen aller Messungen.
+
+```{r test_01_plot_01, fig.height=12}
 test_01_plot_01
 ```
 
-```{r}
+Ein Maß der Streuung liefert die Standardabweichung der Messungen. 
+Abbildung \@ref(test_01_plot_02) zeigt die gemittelte Standardabweichungen der untersuchten Faktoren.
+
+```{r test_01_plot_02}
 test_01_plot_02
 ```
 
-```{r}
+```{r test_01_plot_03}
 test_01_plot_03
 ```
 
