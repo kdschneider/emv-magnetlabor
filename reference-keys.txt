@@ -3,3 +3,6 @@ theory
 einseitig-vs.-zweiseitig-aufgelegen
 materialien
 testmessungen
+solutions
+kupfergeflecht
+andere-kabel

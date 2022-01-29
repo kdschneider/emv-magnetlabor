@@ -50,6 +50,7 @@
 <li><a class="" href="intro.html"><span class="header-section-number">1</span> Einleitung</a></li>
 <li><a class="" href="theory.html"><span class="header-section-number">2</span> Schirmung von Leitern</a></li>
 <li><a class="" href="testmessungen.html"><span class="header-section-number">3</span> Testmessungen</a></li>
+<li><a class="" href="solutions.html"><span class="header-section-number">4</span> Mögliche Lösungen</a></li>
 </ul>
 
         <div class="book-extra">
@@ -85,16 +86,16 @@ Dieser installiert alle in der Datei <code>renv.lock</code> aufgeführten Pakete
 </h3>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span class="fu">sessioninfo</span><span class="fu">::</span><span class="fu"><a href="https://r-lib.github.io/sessioninfo/reference/platform_info.html">platform_info</a></span><span class="op">(</span><span class="op">)</span> |&gt;
-  <span class="fu"><a href="https://tibble.tidyverse.org/reference/enframe.html">enframe</a></span><span class="op">(</span><span class="op">)</span> |&gt;
-  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/nest.html">unnest</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span> |&gt;
-  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>id_cols <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span>, names_from <span class="op">=</span> <span class="st">"name"</span>, values_from <span class="op">=</span> <span class="st">"value"</span><span class="op">)</span> |&gt;
+  <span class="fu"><a href="https://tibble.tidyverse.org/reference/enframe.html">enframe</a></span><span class="op">(</span><span class="op">)</span> |&gt; 
+  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/nest.html">unnest</a></span><span class="op">(</span><span class="va">value</span><span class="op">)</span> |&gt; 
+  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_wider.html">pivot_wider</a></span><span class="op">(</span>id_cols <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span>, names_from <span class="op">=</span> <span class="st">"name"</span>, values_from <span class="op">=</span> <span class="st">"value"</span><span class="op">)</span> |&gt; 
   <span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span>
     <span class="st">"Version"</span> <span class="op">=</span> <span class="va">version</span>,
     <span class="st">"OS"</span> <span class="op">=</span> <span class="va">os</span>,
     <span class="st">"System"</span> <span class="op">=</span> <span class="va">system</span>,
     <span class="va">pandoc</span>
-  <span class="op">)</span> |&gt;
-  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> |&gt;
+  <span class="op">)</span> |&gt; 
+  <span class="fu"><a href="https://tidyr.tidyverse.org/reference/pivot_longer.html">pivot_longer</a></span><span class="op">(</span>cols <span class="op">=</span> <span class="fu"><a href="https://tidyselect.r-lib.org/reference/everything.html">everything</a></span><span class="op">(</span><span class="op">)</span><span class="op">)</span> |&gt; 
   <span class="fu">knitr</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/knitr/man/kable.html">kable</a></span><span class="op">(</span>col.names <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html">c</a></span><span class="op">(</span><span class="st">""</span>, <span class="st">""</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="inline-table"><table class="table table-sm"><tbody>
 <tr class="odd">
@@ -150,7 +151,7 @@ Dieser installiert alle in der Datei <code>renv.lock</code> aufgeführten Pakete
   <div class="col-12 col-md-6 mt-3">
     <p>"<strong>EMV Magnetlabor</strong>"</p>
     <p>Konstantin Schneider</p>
-    <p>Zuletzt aktualisiert: 25. Jan 2022.</p>
+    <p>Zuletzt aktualisiert: 29. Jan 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">

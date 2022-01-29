@@ -6,16 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>3 Testmessungen | EMV Magnetlabor</title>
 <meta name="author" content="Konstantin Schneider">
-<meta name="description" content='load(here::here("data/analysis_1.rda")) analysis_1_data |&gt;  dplyr::select(-filename, -measurement) |&gt;  DT::datatable()...'>
+<meta name="description" content='load(here::here("data/test_01.rda")) # test_01_data |&gt; #  dplyr::select(-filename, -measurement) |&gt; #  DT::datatable() test_01_plot_01 test_01_plot_02 test_01_plot_03'>
 <meta name="generator" content="bookdown 0.24 with bs4_book()">
 <meta property="og:title" content="3 Testmessungen | EMV Magnetlabor">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://kdschneider.github.io/emv-magnetlabor/testmessungen.html">
 <meta property="og:image" content="https://kdschneider.github.io/emv-magnetlabor/static/img/title_image.jpg">
-<meta property="og:description" content='load(here::here("data/analysis_1.rda")) analysis_1_data |&gt;  dplyr::select(-filename, -measurement) |&gt;  DT::datatable()...'>
+<meta property="og:description" content='load(here::here("data/test_01.rda")) # test_01_data |&gt; #  dplyr::select(-filename, -measurement) |&gt; #  DT::datatable() test_01_plot_01 test_01_plot_02 test_01_plot_03'>
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="3 Testmessungen | EMV Magnetlabor">
-<meta name="twitter:description" content='load(here::here("data/analysis_1.rda")) analysis_1_data |&gt;  dplyr::select(-filename, -measurement) |&gt;  DT::datatable()...'>
+<meta name="twitter:description" content='load(here::here("data/test_01.rda")) # test_01_data |&gt; #  dplyr::select(-filename, -measurement) |&gt; #  DT::datatable() test_01_plot_01 test_01_plot_02 test_01_plot_03'>
 <meta name="twitter:image" content="https://kdschneider.github.io/emv-magnetlabor/static/img/title_image.jpg">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -50,6 +50,7 @@
 <li><a class="" href="intro.html"><span class="header-section-number">1</span> Einleitung</a></li>
 <li><a class="" href="theory.html"><span class="header-section-number">2</span> Schirmung von Leitern</a></li>
 <li><a class="active" href="testmessungen.html"><span class="header-section-number">3</span> Testmessungen</a></li>
+<li><a class="" href="solutions.html"><span class="header-section-number">4</span> Mögliche Lösungen</a></li>
 </ul>
 
         <div class="book-extra">
@@ -62,31 +63,33 @@
 <span class="header-section-number">3</span> Testmessungen<a class="anchor" aria-label="anchor" href="#testmessungen"><i class="fas fa-link"></i></a>
 </h1>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"data/analysis_1.rda"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
+<code class="sourceCode R"><span class="fu"><a href="https://rdrr.io/r/base/load.html">load</a></span><span class="op">(</span><span class="fu">here</span><span class="fu">::</span><span class="fu"><a href="https://here.r-lib.org//reference/here.html">here</a></span><span class="op">(</span><span class="st">"data/test_01.rda"</span><span class="op">)</span><span class="op">)</span></code></pre></div>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">analysis_1_data</span> |&gt;
-  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/select.html">select</a></span><span class="op">(</span><span class="op">-</span><span class="va">filename</span>, <span class="op">-</span><span class="va">measurement</span><span class="op">)</span> |&gt;
-  <span class="fu">DT</span><span class="fu">::</span><span class="fu"><a href="https://rdrr.io/pkg/DT/man/datatable.html">datatable</a></span><span class="op">(</span><span class="op">)</span></code></pre></div>
-<div id="htmlwidget-42c746175ab1151adff2" style="width:100%;height:auto;" class="datatables html-widget"></div>
-<script type="application/json" data-for="htmlwidget-42c746175ab1151adff2">{"x":{"filter":"none","vertical":false,"data":[["1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24","25","26","27","28","29","30","31","32","33","34","35","36","37","38","39","40","41","42","43","44","45","46","47","48","49","50","51","52","53","54","55","56","57","58","59","60"],[1,1,1,1,2,2,3,3,1,1,1,1,1,1,1,2,2,3,3,1,1,1,2,1,1,1,2,2,3,3,1,1,1,2,1,1,1,2,2,3,3,1,1,1,3,1,1,1,2,2,3,3,1,1,1,3,1,1,1,1],[true,true,false,false,false,false,false,false,false,false,false,true,false,true,true,true,true,true,true,true,true,true,true,true,false,false,false,false,false,false,false,false,false,true,false,true,true,true,true,true,true,true,true,true,true,true,false,false,false,false,false,false,false,false,false,true,false,true,true,true],[true,false,true,false,false,true,true,false,true,false,true,false,false,true,false,true,false,true,false,true,false,false,true,true,true,false,true,false,true,false,true,false,true,false,false,true,false,true,false,true,false,true,false,true,true,false,true,false,true,false,true,false,true,false,true,false,false,true,false,true],["FALSE","double","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE","single","single","double","FALSE","double","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE","single","single","double","FALSE","double","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE","single","single","double","FALSE","double","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE","single","single","double","FALSE","double","FALSE","FALSE","FALSE","FALSE","FALSE","FALSE","single","single","double","FALSE","double","single","single","double"],[1,1,1,1,1,1,1,1,1,1,1,1,1,2,2,1,1,1,1,1,1,2,2,1,2,2,2,2,2,2,2,2,2,2,2,3,3,3,3,2,2,2,2,2,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3,3]],"container":"<table class=\"display\">\n  <thead>\n    <tr>\n      <th> <\/th>\n      <th>length<\/th>\n      <th>iso_traf<\/th>\n      <th>ground<\/th>\n      <th>extra_ins<\/th>\n      <th>rep<\/th>\n    <\/tr>\n  <\/thead>\n<\/table>","options":{"columnDefs":[{"className":"dt-right","targets":[1,5]},{"orderable":false,"targets":0}],"order":[],"autoWidth":false,"orderClasses":false}},"evals":[],"jsHooks":[]}</script><div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">analysis_1_plot_1</span></code></pre></div>
+<code class="sourceCode R"><span class="co"># test_01_data |&gt; </span>
+<span class="co">#   dplyr::select(-filename, -measurement) |&gt; </span>
+<span class="co">#   DT::datatable()</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">test_01_plot_01</span></code></pre></div>
 <div class="inline-figure"><img src="tpt_goldbonder_bericht_files/figure-html/unnamed-chunk-9-1.png" width="100%" style="display: block; margin: auto;"></div>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span class="va">analysis_1_plot_2</span></code></pre></div>
+<code class="sourceCode R"><span class="va">test_01_plot_02</span></code></pre></div>
 <div class="inline-figure"><img src="tpt_goldbonder_bericht_files/figure-html/unnamed-chunk-10-1.png" width="100%" style="display: block; margin: auto;"></div>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span class="va">test_01_plot_03</span></code></pre></div>
+<div class="inline-figure"><img src="tpt_goldbonder_bericht_files/figure-html/unnamed-chunk-11-1.png" width="100%" style="display: block; margin: auto;"></div>
 
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="theory.html"><span class="header-section-number">2</span> Schirmung von Leitern</a></div>
-<div class="empty"></div>
+<div class="next"><a href="solutions.html"><span class="header-section-number">4</span> Mögliche Lösungen</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="In diesem Kapitel"><h2>In diesem Kapitel</h2>
       <ul class="nav navbar-nav"><li><a class="nav-link" href="#testmessungen"><span class="header-section-number">3</span> Testmessungen</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/kdschneider/tpt-goldbonder/blob/main/chapters/03_analyis_1.Rmd">Quellcode/Daten <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/kdschneider/tpt-goldbonder/edit/main/chapters/03_analyis_1.Rmd">Bearbeiten <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/kdschneider/tpt-goldbonder/blob/main/chapters/03_test_01.Rmd">Quellcode/Daten <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/kdschneider/tpt-goldbonder/edit/main/chapters/03_test_01.Rmd">Bearbeiten <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>
@@ -100,7 +103,7 @@
   <div class="col-12 col-md-6 mt-3">
     <p>"<strong>EMV Magnetlabor</strong>"</p>
     <p>Konstantin Schneider</p>
-    <p>Zuletzt aktualisiert: 25. Jan 2022.</p>
+    <p>Zuletzt aktualisiert: 29. Jan 2022.</p>
   </div>
 
   <div class="col-12 col-md-6 mt-3">
