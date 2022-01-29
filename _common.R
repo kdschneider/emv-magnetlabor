@@ -11,7 +11,7 @@ knitr::opts_chunk$set(
   message = FALSE,
   warning = FALSE,
   results = "markup",
-  tidy = "styler",
+  tidy = FALSE,
   fig.retina = 2,
   fig.align = "center",
   out.width = "100%"
