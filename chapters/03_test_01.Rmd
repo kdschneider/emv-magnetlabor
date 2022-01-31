@@ -1,7 +1,7 @@
 # Testmessungen
 
 ```{r}
-load(here::here("data/test_01.rda"))
+load(here::here("data/test-01.rda"))
 ```
 
 Im Messspitzenlabor konnte durch das Einschalten der Raumbeleuchtung ein Störsignal erzeugt werden. 
