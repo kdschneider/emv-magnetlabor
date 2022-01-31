@@ -10,7 +10,7 @@ knitr::opts_chunk$set(
   echo = params$show_code,
   message = FALSE,
   warning = FALSE,
-  results = "markup",
+  #results = "markup",
   tidy = FALSE,
   fig.retina = 2,
   fig.align = "center",
@@ -26,7 +26,6 @@ theme_beautiful <-
   ggthemes::theme_foundation() +
   ggplot2::theme(
     text = ggplot2::element_text(
-      #family = 'Tahoma',
       face = "plain"
     ),
     plot.title = ggplot2::element_text(
