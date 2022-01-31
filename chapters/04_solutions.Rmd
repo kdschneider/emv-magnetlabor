@@ -5,9 +5,7 @@ Daher sollen im folgenden mehrere mögliche Umsetzungen verglichen werden.
 
 ## Kupfergeflecht
 
-Die vorhandenen RG-58 Koaxialkabel könnten zusätzlich mit einem äußeren Kupfergeflecht umhüllt werden.
-
-**Noch nichts genaueres. Michael Weigl ist informiert.**
+Die vorhandenen RG-58 Koaxialkabel könnten zusätzlich mit einem äußeren Kupfergeflecht umhüllt werden...
 
 ## Andere Kabel
 

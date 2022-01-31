@@ -24,7 +24,7 @@ jobs:
           use-public-rspm: true
 
       - name: Install libcurl
-        run: sudo apt install libcurl4
+        run: sudo apt install libcurl4-openssl-dev
         
       - name: Setup renv
         uses: r-lib/actions/setup-renv@v1

@@ -79,7 +79,7 @@ test_01_plot_01 <-
   geom_line() +
   labs(
     title = "Störsignal",
-    subtitle = "durch Einschalten der Raumbeläuchtung.",
+    subtitle = "durch Einschalten der Raumbeleuchtung.",
     x = "Zeit in ms",
     y = "Spannung in Volt"
   ) +
