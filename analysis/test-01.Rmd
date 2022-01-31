@@ -1,0 +1,246 @@
+---
+title: "Erster Test"
+subtitle: "Auswertung"
+author: "Konstantin Schneider"
+date: "`r lubridate::today()`"
+editor_options: 
+  chunk_output_type: console
+---
+
+```{r echo = FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  message = FALSE
+)
+```
+
+```{r}
+library(tidyverse)
+library(patchwork)
+```
+
+```{r}
+source(here::here("R/read_scope.R"))
+```
+
+```{r}
+test_01_data <-
+  tibble(filename = list.files(here::here("data-raw/lablight"), pattern = "*.csv")) |>
+  filter(filename != "index.csv") |>
+  mutate(
+    measurement = map(
+      .x = filename,
+      .f = function(x) { read_scope(here::here("data-raw/lablight", x)) }
+    )
+  ) |>
+  full_join(read_csv(here::here("data-raw/lablight/index.csv"))) |>
+  group_by(length, iso_traf, ground, extra_ins) |>
+  mutate(
+    rep = row_number()
+  ) |>
+  ungroup() |>
+  mutate(
+    across(length:extra_ins, forcats::as_factor),
+    length = fct_relevel(length, "1", "2", "3") |>
+      fct_recode("1m" = "1", "2m" = "2", "3m" = "3"),
+    iso_traf = 
+      fct_relevel(iso_traf, "TRUE", "FALSE") |>
+      fct_recode("Ja" = "TRUE", "Nein" = "FALSE"),
+    
+    ground = 
+      fct_relevel(ground, "TRUE", "FALSE") |>
+      fct_recode("Ja" = "TRUE", "Nein" = "FALSE"),
+    
+    extra_ins = 
+      fct_relevel(extra_ins, "FALSE", "single", "double") |>
+      fct_recode(
+        "keine" = "FALSE",
+        "einfach" = "single",
+        "doppelt" = "double"
+      )
+  ) |> 
+  unnest(measurement)
+```
+
+```{r}
+test_01_plot_01 <-
+  test_01_data |>
+  slice_sample(prop = 0.1) |>
+  drop_na() |>
+  ggplot() +
+  aes(
+    x = seconds * 1000,
+    y = volts,
+    colour = as_factor(rep),
+    group = filename
+  ) +
+  geom_line() +
+  labs(
+    title = "Störsignal",
+    subtitle = "durch Einschalten der Raumbeläuchtung.",
+    x = "Zeit in ms",
+    y = "Spannung in Volt"
+  ) +
+  xlim(-0.1, 0.2) +
+  facet_wrap(
+    facets = vars(
+      extra_ins = glue::glue("Iso.: {extra_ins}"),
+      iso_traf = glue::glue("Trenntrafo: {iso_traf}"),
+      ground = glue::glue("Erdung: {ground}"),
+      length = glue::glue("Kabellänge: {length}")
+    ),
+    ncol = 4
+  ) +
+  theme(legend.position = "none")
+
+test_01_plot_01
+```
+
+```{r}
+create_sigma_plot <- function(data, x, y) {
+  
+  p <-
+    ggplot(data = {{ data }}) +
+    aes(
+      x = {{ x }},
+      y = {{ y }}
+    ) +
+    geom_col(color = "black", fill = "grey") +
+    theme(axis.title.x = element_blank()) +
+    ylim(0, 2.5) +
+    labs(y = "σ")
+  
+  return(p)
+
+}
+
+
+p1 <-
+  test_01_data |> 
+  filter(extra_ins == "keine") |> 
+  group_by(length) |> 
+  summarise(
+    standard_deviation = sd(volts)
+  ) |> 
+  create_sigma_plot(x = length, y = standard_deviation) +
+  labs(subtitle = "Kabellänge")
+
+
+p2 <-
+  test_01_data |> 
+  filter(length == "1m") |> 
+  group_by(extra_ins) |> 
+  summarise(
+    standard_deviation = sd(volts)
+  ) |> 
+  create_sigma_plot(x = extra_ins, y = standard_deviation) +
+  theme(axis.title.y = element_blank()) +
+  labs(subtitle = "Extra Schirmung")
+
+
+p3 <-
+  test_01_data |> 
+  group_by(ground) |> 
+  summarise(
+    standard_deviation = sd(volts)
+  ) |> 
+  create_sigma_plot(x = ground, y = standard_deviation) +
+  labs(subtitle = "Erdung")
+
+p4 <-
+  test_01_data |> 
+  group_by(iso_traf) |> 
+  summarise(
+    standard_deviation = sd(volts)
+  ) |> 
+  create_sigma_plot(x = iso_traf, y = standard_deviation) +
+  theme(axis.title.y = element_blank()) +
+  labs(subtitle = "Trenntrafo")
+
+test_01_plot_02 <-
+  (p1 + p2)/(p3 + p4) &
+  plot_annotation(
+    title = "Mittlere Standardabweichung",
+    tag_levels = "A"
+  )
+
+test_01_plot_02
+```
+
+```{r} 
+create_pp_plot <- function(data, x) {
+  
+  p <- 
+    {{ data }} |> 
+    group_by(filename, {{ x }}) |> 
+    summarise(
+      pp = max(volts) - min(volts)
+    ) |> 
+    group_by({{ x }}) |> 
+    summarise(
+      pp = mean(pp)
+    ) |>  
+    ggplot() +
+    aes(
+      x = {{ x }},
+      y = pp
+    ) +
+    geom_col(color = "black", fill = "grey") +
+    theme(axis.title.x = element_blank()) +
+    labs(y = "Spannung [V]") +
+    ylim(0, 17.5)
+  
+  return(p)
+  
+}
+
+p1 <-
+  test_01_data |> 
+  filter(extra_ins == "keine") |> 
+  create_pp_plot(length) +
+  labs(subtitle = "Kabellänge")
+
+p2 <-
+  test_01_data |> 
+  filter(length == "1m") |> 
+  create_pp_plot(extra_ins) +
+  theme(axis.title.y = element_blank()) +
+  labs(subtitle = "Trenntrafo")
+
+p3 <- 
+  test_01_data |> 
+  create_pp_plot(ground) +
+  labs(subtitle = "Erdung")
+
+p4 <- 
+  test_01_data |> 
+  create_pp_plot(iso_traf) +
+  theme(axis.title.y = element_blank()) +
+  labs(subtitle = "Trenntrafo")
+
+  
+test_01_plot_03 <- 
+  (p1 + p2)/(p3 + p4) &
+  plot_annotation(
+    title = "Mittlere Peak-to-Peak-Amplitude",
+    tag_levels = "A"
+  )
+
+test_01_plot_03
+```
+
+
+```{r}
+# write ----
+save(
+  list = c(
+    "test_01_data",
+    "test_01_plot_01",
+    "test_01_plot_02",
+    "test_01_plot_03"
+  ),
+  file = here::here("data/test_01.rda")
+)
+```
