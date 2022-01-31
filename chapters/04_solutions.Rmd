@@ -12,10 +12,9 @@ Die vorhandenen RG-58 Koaxialkabel könnten zusätzlich mit einem äußeren Kupf
 ## Andere Kabel
 
 Eine weitere Möglichkeit wäre die Anschaffung neuer Kabel mit doppelter Isolierung. 
-Gut geeignet wären die Kabel RG-223, RG-142 oder RG-400.
-Diese haben ähnliche Maße wie unsere vorhandenen RG-58 Kabel, verfügen allerdings über eine zusätzliches versilbertes Kupfergeflecht zur besseren Schirmung.
+Gut geeignet wären die Kabel [RG-223](https://koaxshop.de/gx2/RG--Koaxkabel-50-Ohm/RG-223-Koaxkabel.html), [RG-142](https://koaxshop.de/gx2/RG--Koaxkabel-50-Ohm/RG-142-Koaxkabel.html) oder [RG-400](https://koaxshop.de/gx2/RG--Koaxkabel-50-Ohm/RG-400-Koaxkabel.html).
+Diese haben ähnliche Maße wie unsere vorhandenen [RG-58](https://koaxshop.de/gx2/RG--Koaxkabel-50-Ohm/RG-58-Koaxkabel.html) Kabel, verfügen allerdings über ein zusätzliches versilbertes Kupfergeflecht zur besseren Schirmung.
 Außerdem können sie auch mit BNC-Steckern versehen werden.
-Siehe Tabelle *ref* für einen Vergleich der Kabel.
 
 ```{r}
 cables <-
