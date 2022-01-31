@@ -8,4 +8,5 @@ docs
 man/
 _book/
 _bookdown_files/
+analysis/*.html
 .RData

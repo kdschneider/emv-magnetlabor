@@ -1,7 +1,7 @@
 # Testmessungen
 
 ```{r}
-load(here::here("data/test_01.rda"))
+load(here::here("data/test-01.rda"))
 ```
 
 Im Messspitzenlabor konnte durch das Einschalten der Raumbeleuchtung ein Störsignal erzeugt werden. 
@@ -14,27 +14,32 @@ Nachffolgend soll gezeigt werden, welche Faktoren dabei maßgeblich eine Rolle s
 ## Versuchsdurchführung
 
 Es wurden die folgenden Faktoren betrachtet: 
-  - Kabellänge: 1m, 2m, 3m
+
+  - Kabellänge: 1m, 2m, 3m (RG-58)
   - Trenntrafo: mit/ohne
   - Erdung: mit/ohne
-  - Zusätzliche Schirmung durch ein Kupfergeflecht: ohne, einfach aufgelegt, doppelt aufgelegt
+  - Zusätzliche Schirmung durch ein Kupfergeflecht: ohne, einfach aufgelegt, doppelt aufgelegt (Nur 1m Kabel!)
   
 Es wurde zu jeder Kombination dieser Parameterwerte eine Messung aufgenommen und die Oszilloskopdaten gespeichert. 
 Dies wurde dreimal wiederholt.
-Abbildung \@ref(test_01_plot_01) zeigt die Verlaufsgraphen aller Messungen.
+Abbildung \@ref(fig:test-01-plot-01) zeigt die Verlaufsgraphen aller Messungen.
 
-```{r test_01_plot_01, fig.height=12}
+```{r test-01-plot-01, fig.height=12, fig.cap="PLATZHALTER"}
 test_01_plot_01
 ```
 
 Ein Maß der Streuung liefert die Standardabweichung der Messungen. 
-Abbildung \@ref(test_01_plot_02) zeigt die gemittelte Standardabweichungen der untersuchten Faktoren.
+Abbildung \@ref(fig:test-01-plot-02) zeigt die gemittelte Standardabweichungen der untersuchten Faktoren.
 
-```{r test_01_plot_02}
+```{r test-01-plot-02, fig.cap="PLATZHALTER"}
 test_01_plot_02
 ```
 
-```{r test_01_plot_03}
+Zusätzlich wurden die Peak-to-Peak-Amplituden der Messungen berechnet. 
+Abbildung \@ref(test-01-plot-03) zeigt die mittlere Peak-to-Peak-Amplitude der unterschiedlichen Faktorleveln.
+
+```{r test-01-plot-03, fig.cap="PLATZHALTER"}
 test_01_plot_03
 ```
 
+Aus diesen Messungen geht hervor vor allem die Kabellänge einen Einfluss auf die Störfestigkeit hat. Die zusätzliche Isolation der Kabel durch ein Kupfergeflecht, zeigt dagegen keinen Effekt. Da bisher nur 1m lange Kabel mit Kupfergeflecht vorhanden waren, sollte noch eine Messung angestellt werden, die die Störfestigkeit von unisolierten und isolierten langen Kabeln vergleicht.
