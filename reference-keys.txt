@@ -1,8 +1,13 @@
+fig:test-01-plot-01
+fig:test-01-plot-02
+fig:test-01-plot-03
 intro
 theory
 einseitig-vs.-zweiseitig-aufgelegen
 materialien
 testmessungen
+aufbau
+versuchsdurchführung
 solutions
 kupfergeflecht
 andere-kabel
